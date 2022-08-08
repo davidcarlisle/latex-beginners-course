@@ -53,6 +53,7 @@ CLEAN = \
 ################################################################
 
 %.pdf: %.tex
+	mkdir -p  _site
 	NAME=`basename $< .tex` ; \
 	echo "Typesetting $$NAME" ; \
 	pdflatex -draftmode -interaction=nonstopmode $< > /dev/null ; \
@@ -62,6 +63,7 @@ CLEAN = \
 	for I in $(AUXFILES) ; do \
 	  rm -f *.$$I ; \
 	done
+	cp $@ _site
 
 ################################################################
 # User make options                                            #
