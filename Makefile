@@ -91,10 +91,11 @@ handouts: handouts.pdf
 online:
 	echo "Typesetting HTML"
 #	htlatex online "online" > /dev/null
-	echo "<p><a href='online.html'>html notes</a></p>" > index.html
-	echo "<p><a href='slides.pdf'>slides</a></p>" >> index.html
-	echo "<p><a href='handouts.pdf'>handouts</a></p>" >> index.html
-	echo "<p><a href='tutornotes.pdf'>tutor notes</a></p>" >> index.html
+	mkdir -p  _site
+	echo "<p><a href='online.html'>html notes</a></p>" > _site/index.html
+	echo "<p><a href='slides.pdf'>slides</a></p>" >> _site/index.html
+	echo "<p><a href='handouts.pdf'>handouts</a></p>" >> _site/index.html
+	echo "<p><a href='tutornotes.pdf'>tutor notes</a></p>" >> _site/index.html
 	for I in $(AUXFILES) ; do \
 	  rm -f *.$$I ; \
 	done
