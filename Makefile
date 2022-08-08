@@ -56,6 +56,7 @@ CLEAN = \
 	mkdir -p  _site
 	NAME=`basename $< .tex` ; \
 	echo "Typesetting $$NAME" ; \
+	echo "" >letltxmacro.sty ; \
 	pdflatex -draftmode -interaction=nonstopmode $<  ; \
 	if [ $$? = 0 ] ; then  \
 	  pdflatex -interaction=nonstopmode $< > /dev/null ; \
