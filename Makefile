@@ -56,7 +56,7 @@ CLEAN = \
 	mkdir -p  _site
 	NAME=`basename $< .tex` ; \
 	echo "Typesetting $$NAME" ; \
-	pdflatex -draftmode -interaction=nonstopmode $<  ; \
+	pdflatex -draftmode -interaction=nonstopmode $< > /dev/null ; \
 	if [ $$? = 0 ] ; then  \
 	  pdflatex -interaction=nonstopmode $< > /dev/null ; \
 	fi
@@ -90,7 +90,9 @@ clean:
 
 handouts: handouts.pdf
 
-online:
+online: _site/online.html
+
+ _site/online.html:
 	echo "Typesetting HTML"
 	mkdir -p  _site
 	htlatex online "online" "" -d./_site/ > /dev/null
