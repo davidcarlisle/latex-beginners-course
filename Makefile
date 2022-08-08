@@ -56,14 +56,14 @@ CLEAN = \
 	mkdir -p  _site
 	NAME=`basename $< .tex` ; \
 	echo "Typesetting $$NAME" ; \
-	pdflatex -draftmode -interaction=nonstopmode $< > /dev/null ; \
+	pdflatex -draftmode -interaction=nonstopmode $<  ; \
 	if [ $$? = 0 ] ; then  \
 	  pdflatex -interaction=nonstopmode $< > /dev/null ; \
 	fi
 	for I in $(AUXFILES) ; do \
 	  rm -f *.$$I ; \
 	done
-	cp $@ _site
+	cp $@ _site || echo no $NAME
 
 ################################################################
 # User make options                                            #
