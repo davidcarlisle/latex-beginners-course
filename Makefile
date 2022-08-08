@@ -63,7 +63,7 @@ CLEAN = \
 	for I in $(AUXFILES) ; do \
 	  rm -f *.$$I ; \
 	done
-	cp $@ _site || echo no $NAME
+	cp $@ _site || echo "no $$NAME"
 
 ################################################################
 # User make options                                            #
