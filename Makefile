@@ -19,7 +19,7 @@ help:
 	@echo " make notes    - make tutor notes"
 	@echo " make slides   - make slides"
 	@echo ""
-	
+
 ##############################################################
 # Clean-up information                                       #
 ##############################################################
@@ -47,7 +47,7 @@ CLEAN = \
 	pdf  \
 	png  \
 	svg
-	
+
 ################################################################
 # Standard file options                                        #
 ################################################################
@@ -62,7 +62,7 @@ CLEAN = \
 	for I in $(AUXFILES) ; do \
 	  rm -f *.$$I ; \
 	done
-	
+
 ################################################################
 # User make options                                            #
 ################################################################
@@ -74,9 +74,9 @@ CLEAN = \
 	online   \
 	notes    \
 	slides
-	
+
 all: handouts online notes slides
-	
+
 clean:
 	echo "Cleaning up"
 	for I in $(AUXFILES) ; do \
@@ -85,16 +85,20 @@ clean:
 	for I in $(CLEAN) ; do \
 	  rm -f *.$$I ; \
 	done
-	
+
 handouts: handouts.pdf
-	
+
 online:
 	echo "Typesetting HTML"
 	htlatex online "online" > /dev/null
+	echo "<p><a href='online.html'>html notes</a></p>" > index.html
+	echo "<p><a href='slides.pdf'>slides</a></p>" >> index.html
+	echo "<p><a href='handouts.pdf'>handouts</a></p>" >> index.html
+	echo "<p><a href='tutornotes.pdf'>tutor notes</a></p>" >> index.html
 	for I in $(AUXFILES) ; do \
 	  rm -f *.$$I ; \
 	done
-	
+
 notes: tutornotes.pdf
-	
+
 slides: slides.pdf
