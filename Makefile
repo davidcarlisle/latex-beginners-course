@@ -92,7 +92,7 @@ handouts: handouts.pdf
 
 online:
 	echo "Typesetting HTML"
-#	htlatex online "online" > /dev/null
+	htlatex online "online" > /dev/null
 	mkdir -p  _site
 	echo "<p><a href='online.html'>html notes</a></p>" > _site/index.html
 	echo "<p><a href='slides.pdf'>slides</a></p>" >> _site/index.html
