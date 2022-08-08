@@ -29,7 +29,7 @@ jobs:
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v1
-      - run: make all
+      - run: sudo apt-get install -y texlive-latex-base tex4ht; make all
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1 # This will automatically upload an artifact from the '/_site' directory
 
